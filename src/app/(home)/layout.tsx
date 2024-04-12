@@ -1,5 +1,13 @@
 import { Header } from '@/components/header'
+import { Metadata } from 'next'
 import { ReactNode } from 'react'
+
+export const metadata: Metadata = {
+  title: {
+    template: '%s | DevStyle',
+    default: 'Home',
+  },
+}
 
 export default function HomeLayout({ children }: { children: ReactNode }) {
   return (
