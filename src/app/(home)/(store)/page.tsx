@@ -1,5 +1,5 @@
 import { api } from '@/api'
-import { ProductProps } from '@/types/products'
+import { ProductProps } from '@/app/(home)/(store)/product/[slug]'
 import Image from 'next/image'
 import Link from 'next/link'
 

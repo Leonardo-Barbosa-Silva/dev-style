@@ -1,8 +1,8 @@
 import { api } from '@/api'
-import { ProductProps } from '@/types/products'
+import { FormAddToCart } from '@/components/forms/add-to-cart'
 import { Metadata } from 'next'
 import Image from 'next/image'
-import { ProductPageParams } from './types'
+import { ProductPageParams, ProductProps } from './types'
 
 async function getProduct(slug: string): Promise<ProductProps> {
   const resp = await api(`/products/${slug}`, {
@@ -61,70 +61,7 @@ export default async function ProductPage({ params }: ProductPageParams) {
           </span>
         </div>
 
-        <form className="flex flex-col">
-          <span className="mb-3 font-semibold">Tamanhos</span>
-
-          <div className="mb-6 flex gap-3 text-sm">
-            <div className="w-fit rounded-full border border-zinc-700 bg-zinc-800 px-4 py-1.5">
-              <label htmlFor="P" className="font-bold">
-                P
-              </label>
-              <input
-                type="radio"
-                id="P"
-                name="P"
-                value="P"
-                className="hidden"
-              />
-            </div>
-
-            <div className="w-fit rounded-full border border-zinc-700 bg-zinc-800 px-4 py-1.5">
-              <label htmlFor="M" className="font-bold">
-                M
-              </label>
-              <input
-                type="radio"
-                id="M"
-                name="M"
-                value="M"
-                className="hidden"
-              />
-            </div>
-
-            <div className="w-fit rounded-full border border-zinc-700 bg-zinc-800 px-4 py-1.5">
-              <label htmlFor="G" className="font-bold">
-                G
-              </label>
-              <input
-                type="radio"
-                id="G"
-                name="G"
-                value="G"
-                className="hidden"
-              />
-            </div>
-
-            <div className="w-fit rounded-full border border-zinc-700 bg-zinc-800 px-4 py-1.5">
-              <label htmlFor="GG" className="font-bold">
-                GG
-              </label>
-              <input
-                type="radio"
-                id="GG"
-                name="GG"
-                value="GG"
-                className="hidden"
-              />
-            </div>
-          </div>
-
-          <button
-            type="submit"
-            className="h-12 w-full rounded-full bg-emerald-500 font-semibold hover:bg-emerald-500/50 hover:transition hover:duration-300"
-          >
-            Adicionar ao carrinho
-          </button>
-        </form>
+        <FormAddToCart product={product} />
       </div>
     </div>
   )

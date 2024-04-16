@@ -8,11 +8,6 @@ const nextConfig = {
       },
     ],
   },
-  logging: {
-    fetches: {
-      fullUrl: true,
-    },
-  },
   reactStrictMode: true,
 }
 
