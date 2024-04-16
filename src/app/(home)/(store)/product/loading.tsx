@@ -1,6 +1,6 @@
 import { Skeleton } from '@/components/skeleton'
 
-export default function ProdutoLoading() {
+export default function ProductLoading() {
   return (
     <div className="grid grid-cols-3 gap-6">
       <div className="col-span-2 h-[800px] p-10">

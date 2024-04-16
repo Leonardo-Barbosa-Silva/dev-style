@@ -1,14 +1,14 @@
 'use client'
 
 import { ReactNode, createContext, useContext, useState } from 'react'
-import { CartContextProps, CartItem, productsSize } from './types'
+import { CartContextProps, CartItem, ProductSizes } from './types'
 
 const CartContext = createContext({} as CartContextProps)
 
 export function CartProvider({ children }: { children: ReactNode }) {
   const [cartItems, setCartItems] = useState<CartItem[]>([])
 
-  function addToCart(productId: number, productSize: productsSize) {
+  function addToCart(productId: number, productSize: ProductSizes) {
     setCartItems((prev) => {
       const isProductOnCart = prev.some(
         (product) => product.productId === productId,

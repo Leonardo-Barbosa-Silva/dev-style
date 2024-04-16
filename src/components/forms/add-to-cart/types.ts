@@ -1,4 +1,4 @@
-import { ProductProps } from '@/app/(home)/(store)/product/[slug]'
+import { ProductProps } from '@/app/(home)/(store)/product/[slug]/types'
 import { z } from 'zod'
 
 export interface FormAddToCartProps {

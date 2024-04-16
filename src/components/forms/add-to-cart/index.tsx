@@ -4,19 +4,21 @@ import { useCart } from '@/contexts/cart'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { AlertTriangle } from 'lucide-react'
 import { useForm } from 'react-hook-form'
+import { SizeButton } from './size-button'
 import {
   FormAddToCartInputsType,
   FormAddToCartProps,
   formAddToCartSchema,
 } from './types'
 
-export function FormAddToCart({ product }: FormAddToCartProps) {
+export function FormAddProductToCart({ product }: FormAddToCartProps) {
   const { addToCart } = useCart()
 
   const {
     register,
     handleSubmit,
     formState: { errors },
+    watch,
   } = useForm<FormAddToCartInputsType>({
     mode: 'onSubmit',
     resolver: zodResolver(formAddToCartSchema),
@@ -28,65 +30,39 @@ export function FormAddToCart({ product }: FormAddToCartProps) {
     addToCart(product.id, productSize)
   }
 
+  const { productSize: productSizeSelectedValue } = watch()
+
   return (
     <form
       className="flex flex-col"
       onSubmit={handleSubmit(handleAddProductToCart)}
     >
-      <span className="mb-3 font-semibold">Tamanhos</span>
+      <span className="mb-3 text-lg font-semibold">Tamanhos</span>
 
-      <div className="mb-6 flex gap-3 text-sm">
-        <div className="w-fit rounded-full border border-zinc-700 bg-zinc-800 px-4 py-1.5">
-          <label htmlFor="P" className="font-bold">
-            P
-          </label>
-          <input
-            type="radio"
-            id="P"
-            value="P"
-            {...register('productSize')}
-            className="hidden"
-          />
-        </div>
+      <div className="mb-6 flex gap-3 text-base">
+        <SizeButton
+          size="P"
+          register={register}
+          productSizeSelectedValue={productSizeSelectedValue}
+        />
 
-        <div className="w-fit rounded-full border border-zinc-700 bg-zinc-800 px-4 py-1.5">
-          <label htmlFor="M" className="font-bold">
-            M
-          </label>
-          <input
-            type="radio"
-            id="M"
-            value="M"
-            {...register('productSize')}
-            className="hidden"
-          />
-        </div>
+        <SizeButton
+          size="M"
+          register={register}
+          productSizeSelectedValue={productSizeSelectedValue}
+        />
 
-        <div className="w-fit rounded-full border border-zinc-700 bg-zinc-800 px-4 py-1.5">
-          <label htmlFor="G" className="font-bold">
-            G
-          </label>
-          <input
-            type="radio"
-            id="G"
-            value="G"
-            {...register('productSize')}
-            className="hidden"
-          />
-        </div>
+        <SizeButton
+          size="G"
+          register={register}
+          productSizeSelectedValue={productSizeSelectedValue}
+        />
 
-        <div className="w-fit rounded-full border border-zinc-700 bg-zinc-800 px-4 py-1.5">
-          <label htmlFor="GG" className="font-bold">
-            GG
-          </label>
-          <input
-            type="radio"
-            id="GG"
-            value="GG"
-            {...register('productSize')}
-            className="hidden"
-          />
-        </div>
+        <SizeButton
+          size="GG"
+          register={register}
+          productSizeSelectedValue={productSizeSelectedValue}
+        />
       </div>
 
       {errors.productSize?.message && (
@@ -97,7 +73,7 @@ export function FormAddToCart({ product }: FormAddToCartProps) {
 
       <button
         type="submit"
-        className="h-12 w-full rounded-full bg-emerald-500 font-semibold hover:bg-emerald-500/50 hover:transition hover:duration-300"
+        className="h-12 w-full rounded-full bg-emerald-500 text-lg font-semibold hover:bg-emerald-500/50 hover:transition hover:duration-300"
       >
         Adicionar ao carrinho
       </button>

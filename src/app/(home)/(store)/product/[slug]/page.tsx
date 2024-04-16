@@ -1,5 +1,5 @@
 import { api } from '@/api'
-import { FormAddToCart } from '@/components/forms/add-to-cart'
+import { FormAddProductToCart } from '@/components/forms/add-to-cart'
 import { Metadata } from 'next'
 import Image from 'next/image'
 import { ProductPageParams, ProductProps } from './types'
@@ -44,7 +44,7 @@ export default async function ProductPage({ params }: ProductPageParams) {
         <div className="flex flex-col gap-1">
           <h1 className="text-3xl font-bold leading-tight">{product.title}</h1>
 
-          <span className="text-sm text-zinc-400">{product.description}</span>
+          <span className="text-base text-zinc-400">{product.description}</span>
         </div>
 
         <div className="flex items-center gap-3">
@@ -52,7 +52,7 @@ export default async function ProductPage({ params }: ProductPageParams) {
             R$ {product.price}
           </span>
 
-          <span className="text-xs text-zinc-400">
+          <span className="text-sm text-zinc-400">
             Em 12x s/ juros de{' '}
             {(product.price / 12).toLocaleString('pt-BR', {
               style: 'currency',
@@ -61,7 +61,7 @@ export default async function ProductPage({ params }: ProductPageParams) {
           </span>
         </div>
 
-        <FormAddToCart product={product} />
+        <FormAddProductToCart product={product} />
       </div>
     </div>
   )

@@ -1,12 +1,12 @@
-export type productsSize = 'P' | 'M' | 'G' | 'GG'
+export type ProductSizes = 'P' | 'M' | 'G' | 'GG'
 
 export type CartItem = {
   productId: number
-  size: productsSize
+  size: ProductSizes
   qtd: number
 }
 
 export interface CartContextProps {
   items: CartItem[]
-  addToCart: (productId: number, productSize: productsSize) => void
+  addToCart: (productId: number, productSize: ProductSizes) => void
 }

@@ -29,13 +29,17 @@ export function SearchProducts() {
       onSubmit={handleSubmit(handleSearchFormSubmit)}
       className="flex h-[52px] w-[320px] items-center gap-3 rounded-full bg-zinc-900 px-4 py-2"
     >
-      <Search size={24} className="text-zinc-500" />
+      <button type="submit" className="group">
+        <Search
+          size={24}
+          className="text-zinc-500 group-hover:text-emerald-500"
+        />
+      </button>
 
       <input
         {...register('search')}
         placeholder="Buscar produtos..."
         className="flex-1 bg-transparent outline-none placeholder:text-zinc-500"
-        required
       />
     </form>
   )
