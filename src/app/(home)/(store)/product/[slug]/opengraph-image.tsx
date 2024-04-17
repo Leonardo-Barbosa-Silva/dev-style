@@ -1,8 +1,8 @@
 import { api } from '@/api'
-import { ProductProps } from '@/app/(home)/(store)/product/[slug]'
 import { env } from '@/env'
 import { ImageResponse } from 'next/og'
 import colors from 'tailwindcss/colors'
+import { ProductProps } from './types'
 
 export const runtime = 'edge'
 

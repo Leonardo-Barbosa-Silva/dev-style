@@ -1,7 +1,7 @@
 import { api } from '@/api'
-import { ProductProps } from '@/app/(home)/(store)/product/[slug]'
 import Image from 'next/image'
 import Link from 'next/link'
+import { ProductProps } from './product/[slug]/types'
 
 async function getFeaturedProducts(): Promise<ProductProps[]> {
   const resp = await api('/products/featured', {

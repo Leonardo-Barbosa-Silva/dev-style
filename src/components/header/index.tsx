@@ -1,7 +1,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { CartWidget } from '../cart-widget'
-import { SearchProducts } from '../forms/search-products'
+import { SearchFormProducts } from '../forms/search-products'
 
 export function Header() {
   return (
@@ -11,7 +11,7 @@ export function Header() {
           DevStyle
         </Link>
 
-        <SearchProducts />
+        <SearchFormProducts />
       </div>
 
       <div className="flex items-center gap-4">

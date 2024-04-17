@@ -3,10 +3,11 @@
 import { zodResolver } from '@hookform/resolvers/zod'
 import { Search } from 'lucide-react'
 import { useRouter, useSearchParams } from 'next/navigation'
+import { Suspense } from 'react'
 import { useForm } from 'react-hook-form'
 import { SearchProductInputsType, searchProductsSchema } from './types'
 
-export function SearchProducts() {
+function SearchFormComponent() {
   const searchParams = useSearchParams()
   const router = useRouter()
 
@@ -42,5 +43,13 @@ export function SearchProducts() {
         className="flex-1 bg-transparent outline-none placeholder:text-zinc-500"
       />
     </form>
+  )
+}
+
+export function SearchFormProducts() {
+  return (
+    <Suspense>
+      <SearchFormComponent />
+    </Suspense>
   )
 }
